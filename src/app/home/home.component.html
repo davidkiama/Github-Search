@@ -2,6 +2,17 @@
 
 <main class="main">
 
+   <form (ngSubmit)="searchUser()">
+
+
+      <input type="search" [(ngModel)]="username" placeholder="Search" name="username"
+         class="input--search">
+
+
+      <input type="submit" class="btn btn--submit" value="Submit">
+
+   </form>
+
    <h2 class="heading-2"> {{user.login}} </h2>
    <img src={{user.avatar_url}} class="user__img">
 

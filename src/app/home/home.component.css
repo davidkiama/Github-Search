@@ -3,6 +3,24 @@
   min-height: 90vh;
 }
 
+.input--search {
+  background-color: #eee;
+  border: none;
+  border-radius: 100px;
+  padding: 1rem;
+  font-size: 1.7rem;
+  height: min-content;
+
+  transition: all 0.2s;
+
+  margin-bottom: 15rem;
+}
+
+.input--search:focus {
+  outline: none;
+  transform: scaleX(1.08);
+}
+
 .user__img {
   height: 30rem;
   width: 30rem;
