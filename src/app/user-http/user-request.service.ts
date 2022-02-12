@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+
 import { User } from '../user-class/user';
-// import { resolve } from 'dns';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,7 @@ export class UserRequestService {
     this.user = new User('', '');
   }
 
-  userRequest() {
+  userRequest(url: string, username: string) {
     interface ApiResponse {
       avatar_url: string;
       login: string;
@@ -22,7 +22,7 @@ export class UserRequestService {
 
     let promise = new Promise((resolve, reject) => {
       this.http
-        .get<ApiResponse>(environment.userUrl)
+        .get<ApiResponse>(url + username + '?' + environment.access_token)
         .toPromise()
         .then(
           (response: any) => {

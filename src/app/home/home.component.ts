@@ -7,6 +7,8 @@ import { User } from '../user-class/user';
 
 import { UserRequestService } from '../user-http/user-request.service';
 
+import { environment } from '../../environments/environment';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -24,8 +26,13 @@ export class HomeComponent implements OnInit {
     this.users = userService.getUsers();
   }
 
-  ngOnInit() {
-    this.userRequestService.userRequest();
+  ngOnInit() {}
+
+  url: string = environment.userUrl;
+  username: string = '';
+
+  searchUser() {
+    this.userRequestService.userRequest(this.url, this.username);
     this.user = this.userRequestService.user;
   }
 }
