@@ -3,13 +3,16 @@
   min-height: 90vh;
 }
 
+form {
+  float: right;
+}
+
 .input--search {
   background-color: #eee;
   border: none;
   border-radius: 100px;
   padding: 1rem;
   font-size: 1.7rem;
-  height: min-content;
 
   transition: all 0.2s;
 
