@@ -21,9 +21,13 @@
       <div class="user__details">
          <h2 class="heading-2"> {{user.login|uppercase}} </h2>
 
-         <ul>
+         <ul *ngFor=" let repo of repos">
             <li>
-               {{repos}}
+
+               <h4 class="heading-4"> {{repo.name}} </h4>
+               <p> {{repo.created_at}} </p>
+               <a href={{repo.html_url}}> Link</a>
+
             </li>
          </ul>
       </div>

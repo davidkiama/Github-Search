@@ -7,6 +7,10 @@ form {
   float: right;
 }
 
+.user {
+  display: flex;
+}
+
 .input--search {
   background-color: #eee;
   border: none;

@@ -21,29 +21,25 @@ export class HomeComponent implements OnInit {
   constructor(
     private userRequestService: UserRequestService,
     private repoRequestService: ReposRequestService
-  ) {
-    // this.users = userService.getUsers();
-  }
+  ) {}
 
   ngOnInit() {}
 
   url: string = environment.userUrl;
   username: string = '';
-  repos: [];
+  repos: Repo[];
 
+  name: string = '';
   searchUser() {
     this.userRequestService.userRequest(this.url, this.username);
     this.user = this.userRequestService.user;
 
-    if (this.user.avatar_url) {
-      this.getRepos();
-    }
-  }
-
-  getRepos() {
     this.repoRequestService.repoRequest(this.url, this.username);
     this.repos = this.repoRequestService.repos;
-
-    console.log(this.repos);
   }
+
+  // getRepos() {
+  //   this.repoRequestService.repoRequest(this.url, this.username);
+  //   this.repos = this.repoRequestService.repos;
+  // }
 }

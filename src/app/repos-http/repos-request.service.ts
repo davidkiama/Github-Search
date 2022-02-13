@@ -12,11 +12,15 @@ export class ReposRequestService {
   repos: [];
 
   constructor(private http: HttpClient) {
-    this.repo = new Repo('', '');
+    this.repo = new Repo('', '', new Date());
   }
 
   repoRequest(url: string, username: string) {
-    interface ApiResponse {}
+    interface ApiResponse {
+      name: string;
+      repo_url: string;
+      created_at: Date;
+    }
 
     let promise = new Promise((resolve, reject) => {
       this.http
@@ -28,10 +32,16 @@ export class ReposRequestService {
           (response: any) => {
             this.repos = response;
 
+            this.repos.forEach((element: Repo) => {
+              this.repo.name = element.name;
+              this.repo.html_url = element.html_url;
+              this.repo.created_at = new Date(element.created_at);
+            });
+
             resolve('');
           },
           (err) => {
-            // this.repos= 'Error';
+            this.repos = [];
 
             reject(err);
           }
