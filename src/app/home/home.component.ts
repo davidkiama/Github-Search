@@ -18,6 +18,10 @@ export class HomeComponent implements OnInit {
   users: User[];
   user: User;
 
+  url: string = environment.userUrl;
+  username: string = '';
+  repos: Repo[];
+
   constructor(
     private userRequestService: UserRequestService,
     private repoRequestService: ReposRequestService
@@ -25,21 +29,18 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {}
 
-  url: string = environment.userUrl;
-  username: string = '';
-  repos: Repo[];
-
   name: string = '';
   searchUser() {
     this.userRequestService.userRequest(this.url, this.username);
     this.user = this.userRequestService.user;
 
-    this.repoRequestService.repoRequest(this.url, this.username);
-    this.repos = this.repoRequestService.repos;
-  }
+    //the repos request took loonger to respond hence the timeout
 
-  // getRepos() {
-  //   this.repoRequestService.repoRequest(this.url, this.username);
-  //   this.repos = this.repoRequestService.repos;
-  // }
+    this.repoRequestService.repoRequest(this.url, this.username);
+    setTimeout(() => {
+      this.repos = this.repoRequestService.repos;
+
+      console.log(this.repos);
+    }, 2000);
+  }
 }

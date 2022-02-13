@@ -15,7 +15,7 @@ export class ReposRequestService {
     this.repo = new Repo('', '', new Date());
   }
 
-  repoRequest(url: string, username: string) {
+  async repoRequest(url: string, username: string) {
     interface ApiResponse {
       name: string;
       repo_url: string;
@@ -41,7 +41,7 @@ export class ReposRequestService {
             resolve('');
           },
           (err) => {
-            this.repos = [];
+            // this.repos = [];
 
             reject(err);
           }
