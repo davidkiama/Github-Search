@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   user: User;
 
   url: string = environment.userUrl;
-  username: string = 'davidkiama';
+  username: string = '';
   repos: Repo[];
 
   constructor(
@@ -27,9 +27,7 @@ export class HomeComponent implements OnInit {
     private repoRequestService: ReposRequestService
   ) {}
 
-  ngOnInit() {
-    this.searchUser();
-  }
+  ngOnInit() {}
 
   name: string = '';
   searchUser() {
