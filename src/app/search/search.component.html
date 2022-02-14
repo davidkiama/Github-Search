@@ -1,0 +1,35 @@
+<main class="main">
+
+   <form (ngSubmit)="searchUser()">
+
+
+      <input type="search" [(ngModel)]="username" placeholder="Search" name="username"
+         class="input--search">
+
+
+      <input type="submit" class="btn btn--submit" value="Submit">
+
+   </form>
+
+
+   <div class="user">
+
+      <img src={{user.avatar_url}} class="user__img">
+
+      <div class="user__details">
+         <h2 class="heading-2 user__name"> {{user.login|uppercase}} </h2>
+
+         <ul class="repos">
+            <li class="repo" *ngFor=" let repo of repos">
+
+               <h4 class="heading-4"> {{repo.name}} </h4>
+               <p> {{repo.created_at | date: 'dd/MM/yyyy'}} </p>
+               <a href={{repo.html_url}}> Link</a>
+
+            </li>
+         </ul>
+      </div>
+   </div>
+
+
+</main>
