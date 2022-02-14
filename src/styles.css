@@ -21,3 +21,15 @@ body {
   font-size: 2rem;
   border: none;
 }
+
+.heading-1,
+.btn {
+  text-decoration: none;
+  color: rgb(5, 5, 58);
+  transition: all 0.3s;
+}
+
+.heading-1:hover,
+.btn:hover {
+  color: brown;
+}
