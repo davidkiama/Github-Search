@@ -27,16 +27,18 @@ export class HomeComponent implements OnInit {
     private repoRequestService: ReposRequestService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.searchUser();
+  }
 
   name: string = '';
   searchUser() {
-    this.userRequestService.userRequest(this.url, this.username);
+    this.userRequestService.userRequest(this.url, 'davidkiama');
     this.user = this.userRequestService.user;
 
     //the repos request took loonger to respond hence the timeout
 
-    this.repoRequestService.repoRequest(this.url, this.username);
+    this.repoRequestService.repoRequest(this.url, 'davidkiama');
     setTimeout(() => {
       this.repos = this.repoRequestService.repos;
 

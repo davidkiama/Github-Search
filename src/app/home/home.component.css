@@ -6,29 +6,23 @@
   flex-direction: column;
 }
 
-form {
-  align-self: flex-end;
-}
-
-.input--search {
-  background-color: #eee;
-  border: none;
-  border-radius: 100px;
-  padding: 1rem;
-  font-size: 1.7rem;
-
-  transition: all 0.2s;
-}
-
-.input--search:focus {
-  outline: none;
-  transform: scaleX(1.08);
-}
-
 .user {
   display: flex;
   justify-content: space-between;
   padding: 6rem 3rem;
+}
+
+.user__name {
+  font-size: 2.6rem;
+}
+
+.user__account {
+  margin-right: 3rem;
+}
+
+.techs {
+  list-style: none;
+  font-size: 1.7rem;
 }
 
 .user__details {
@@ -40,6 +34,7 @@ form {
   height: 30rem;
   width: 30rem;
   border-radius: 50%;
+  margin: 2rem auto;
 }
 
 .repos {

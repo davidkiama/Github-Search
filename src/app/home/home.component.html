@@ -1,23 +1,26 @@
 <main class="main">
 
-   <form (ngSubmit)="searchUser()">
-
-
-      <input type="search" [(ngModel)]="username" placeholder="Search" name="username"
-         class="input--search">
-
-
-      <input type="submit" class="btn btn--submit" value="Submit">
-
-   </form>
-
 
    <div class="user">
 
-      <img src={{user.avatar_url}} class="user__img">
+      <div class="user__account">
+
+
+         <h2 class="heading-2 user__name"> David Kiama </h2>
+         <img src='https://avatars.githubusercontent.com/u/38817867?v=4'
+            class="user__img">
+
+         <h3 class="heading-3">Technologies</h3>
+         <ul class="techs">
+            <li class="tech">Angular</li>
+            <li class="tech">JavaScript</li>
+            <li class="tech">Typescript</li>
+            <li class="tech">HTML & CSS</li>
+         </ul>
+      </div>
 
       <div class="user__details">
-         <h2 class="heading-2 user__name"> {{user.login|uppercase}} </h2>
+
 
          <ul class="repos">
             <li class="repo" *ngFor=" let repo of repos">
